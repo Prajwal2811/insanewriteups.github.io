@@ -3,6 +3,7 @@
 
 
 <!-- Mirrored from demo-noonpost.assiagroupe.net/html/index.html by HTTrack Website Copier/3.x [XR&CO'2017], Sat, 24 Jun 2023 18:34:04 GMT -->
+
 <head>
     <!-- Meta -->
     <meta charset="UTF-8">
@@ -28,7 +29,7 @@
 
 <body>
     <!-- wrapper -->
-   <div id="wrapper" class="wrapper">
+    <div id="wrapper" class="wrapper">
         <!--loading -->
         <div class="loading">
             <div class="circle"></div>
@@ -36,8 +37,8 @@
         <!--/-->
 
         <!-- Header -->
-      
-        
+
+
         <main class="main">
             <!--Login-->
             <section class="mt-60 mb-60">
@@ -46,31 +47,59 @@
                         <div class="section-title">
                             <h5>Login</h5>
                         </div>
-                        <form  action="#" class="sign-form widget-form " method="post">
-                                <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Username*" name="username" value="">
+                        <form action="/poetry.html" class="sign-form widget-form " method="post" name="myform">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Username*" id="username" name="username" value="">
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control" placeholder="Password*" name="password" value="">
+                                <input type="password" class="form-control" placeholder="Password*" id="password" name="password" value="">
                             </div>
                             <div class="sign-controls form-group">
                                 <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="rememberMe">
+                                    <input type="checkbox" class="custom-control-input" id="rememberMe">
                                     <label class="custom-control-label" for="rememberMe">Remember Me</label>
                                 </div>
                                 <!-- <a href="#" class="btn-link  ml-auto">Forgot Password?</a> -->
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="btn-custom">Login now</button>
+                                <button type="submit" class="btn-custom" id="submit" onClick="validate()">Login
+                                    now</button>
                             </div>
-                            
+
                             <!-- <p class="form-group text-center">Don't have an account? <a href="signup.html" class="btn-link">Create One</a> </p> -->
                         </form>
-                    </div> 
+                    </div>
                 </div>
-            </section>        
+            </section>
 
         </main>
+
+        <script language="javascript">
+
+            var attempt = 3; // Variable to count number of attempts.
+            // Below function Executes on click of login button.
+            function validate() {
+                var username = document.getElementById("username").value;
+                var password = document.getElementById("password").value;
+                if (username == "prajwal25" && password == "prajwal25") {
+                    //  alert ("Login successfully");
+                    window.location = form.getAttribute("action"); // Redirecting to other page.
+                    return true;
+                }
+                else {
+                    attempt--;// Decrementing by one.
+                    alert("You have left " + attempt + " attempt;");
+                    // Disabling fields after 3 attempts.
+                    if (attempt == 0) {
+                        document.getElementById("username").disabled = true;
+                        document.getElementById("password").disabled = true;
+                        document.getElementById("submit").disabled = true;
+                        return false;
+                    }
+                }
+            }
+
+        </script>
 
         <!--Search-form-->
         <div class="search">
@@ -92,8 +121,8 @@
         </div>
         <!--/-->
     </div>
-  
-  
+
+
     <!--plugins -->
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
@@ -110,4 +139,5 @@
 </body>
 
 <!-- Mirrored from demo-noonpost.assiagroupe.net/html/login.html by HTTrack Website Copier/3.x [XR&CO'2017], Sat, 24 Jun 2023 18:46:18 GMT -->
+
 </html>
